@@ -15,12 +15,12 @@ public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
-    @GetMapping("/")
+    @GetMapping()
     public ArrayList<UsuarioModel> obtenerUsuarios() {
         return usuarioService.obtenerUsuarios();
     }
 
-    @PostMapping("/update/{id}")
+    @PostMapping()
     public UsuarioModel guardarUsuario(@RequestBody UsuarioModel usuario) {
         return this.usuarioService.guardarUsuario(usuario);
     }

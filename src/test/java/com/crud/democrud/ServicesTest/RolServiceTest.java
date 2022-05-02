@@ -23,7 +23,7 @@ public class RolServiceTest {
 
     @Test
     public void guardarRolTest(){
-        RolModel RolModel=new RolModel(false,false,true,true);
+        RolModel RolModel=new RolModel(false,false,true,true, true);
         RolModel RolModelRegistrado = RolRepository.save(RolModel);
         assertNotNull(RolModelRegistrado);
     }

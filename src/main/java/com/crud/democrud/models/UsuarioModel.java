@@ -1,12 +1,13 @@
 package com.crud.democrud.models;
 
-import java.util.List;
+import java.io.Serializable;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "usuario")
-public class UsuarioModel {
+@Table(name = "usuarios")
+public class UsuarioModel implements Serializable{
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,9 +17,6 @@ public class UsuarioModel {
     private String nombre;
     private String email;
     private Integer prioridad;
-    
-    @OneToMany(mappedBy = "rol")
-    private List<RolModel> roles;
 
     public void setPrioridad(Integer prioridad) {
         this.prioridad = prioridad;

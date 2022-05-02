@@ -1,86 +1,77 @@
 package com.crud.democrud.models;
 
-
-
-import java.util.ArrayList;
+import java.io.Serializable;
 
 import javax.persistence.*;
 
+@Entity 
+@Table(name = "roles")
+public class RolModel implements Serializable {
 
-@Entity
-@Table(name = "rol")
-public class RolModel{
-
+    private static final long serialVersionUID = 1L;
+   
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
     private Long id;
-    private Boolean cajero;
-    private Boolean consultor;
-    private Boolean gerente;
     private Boolean vendedor;
+    private Boolean consultor;
+    private Boolean cajero;
+    private Boolean repartidor;
+    private Boolean gerente;
 
-    @ManyToOne()
-    @JoinColumn(name = "Id")
-    private RolModel rol;
+    @OneToOne()
+    private UsuarioModel usuario; 
 
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
-    public Boolean getCajero() {
-        return cajero;
+    public Boolean getVendedor() {
+        return vendedor;
     }
-
-    public void setCajero(Boolean cajero) {
-        this.cajero = cajero;
+    public void setVendedor(Boolean vendedor) {
+        this.vendedor = vendedor;
     }
-
     public Boolean getConsultor() {
         return consultor;
     }
-
     public void setConsultor(Boolean consultor) {
         this.consultor = consultor;
     }
-
+    public Boolean getCajero() {
+        return cajero;
+    }
+    public void setCajero(Boolean cajero) {
+        this.cajero = cajero;
+    }
+    public Boolean getRepartidor() {
+        return repartidor;
+    }
+    public void setRepartidor(Boolean repartidor) {
+        this.repartidor = repartidor;
+    }
     public Boolean getGerente() {
         return gerente;
     }
-
     public void setGerente(Boolean gerente) {
         this.gerente = gerente;
     }
 
-    public Boolean getVendedor() {
-        return vendedor;
-    }
-
-    public void setVendedor(Boolean vendedor) {
-        this.vendedor = vendedor;
-    }
-
-
-   
-   
-    public RolModel(Boolean cajero, Boolean consultor, Boolean vendedor, Boolean gerente) {
+    public RolModel(Boolean cajero, Boolean vendedor, Boolean repartidor, Boolean gerente, Boolean consultor) {
         this.cajero = cajero;
-        this.consultor = consultor;
-        this.gerente = gerente;
         this.vendedor = vendedor;
+        this.repartidor = repartidor;
+        this.gerente = gerente; 
+        this.consultor = consultor;
+
     }
 
     public RolModel() {
 
     }
 
-    public static ArrayList<RolModel> findAll() {
-        return null;
-    }
     
     
 }
