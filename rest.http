@@ -1,0 +1,9 @@
+POST htpp://localhost:8080/update/1 HTPP/1.1
+content-type: aplication/json
+
+{
+    "nombre": "goku",
+    "email": "goku@gmial",
+    "prioridad":"1"
+    
+}
